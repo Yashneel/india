@@ -9,6 +9,9 @@ canvas.center()
 video = createCapture(VIDEO )
 video.hide()
 
+img1 = loadImage("india.png")
+	
+
 poseNet = ml5.poseNet(video, modelLoaded);
 poseNet.on('pose', gotPoses)
 }
@@ -18,8 +21,10 @@ function preload(){
 }
 
 function draw(){
+    
+
     image(video,0,0,400,400)
-    image("india.png",0,0, leftWristX,leftWristY)
+    
 }
 
 function modelLoaded(){
@@ -40,4 +45,10 @@ function gotPoses(results)
 
 	}
   } 
-  
+  function filters(){
+      console.log("hi")
+	  image(img1,0,0,400,400)
+  }
+  function saves(){
+	  saveCanvas('indiafilterapp', 'png')
+  }
